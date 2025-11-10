@@ -9,6 +9,10 @@ Install conda environments required for the rest of module. Go to the `environme
 For example, to create the `bde` environment, first navigate into the `environments` folder by running `cd environments`, then run the following command:
 
 `conda env create --file bde-environment.yml`
+`conda env create --file dagster_environment.yml`
+`conda env create --file elt_environment.yml`
+`conda env create --file kafka-environment.yml`
+`conda env create --file ooc-environment.yml`
 
 To replace an existing environment:
 
