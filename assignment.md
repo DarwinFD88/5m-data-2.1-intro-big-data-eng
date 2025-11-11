@@ -51,26 +51,9 @@ Question: Count the number of movies with 3 comments or more.
 Answer:
 
 ```python
-stage_lookup_comments = {
-   "$lookup": {
-         "from": "comments", 
-         "localField": "_id", 
-         "foreignField": "movie_id", 
-         "as": "related_comments",
-   }
-}
-
-stage_add_comment_count = {
-   "$addFields": {
-         "comment_count": {
-            "$size": "$related_comments"
-         }
-   } 
-}
-
 stage_match_with_comments = {
    "$match": {
-         "comment_count": {
+         "num_mflix_comments": {
             "$gte": 3
          }
    } 
@@ -84,6 +67,7 @@ stage_group_count = {
 }
 
 pipeline = [
+   stage_match_with_comments,
    stage_group_count
 ]
 
