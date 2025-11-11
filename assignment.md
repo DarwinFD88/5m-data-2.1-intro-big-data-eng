@@ -16,7 +16,7 @@ Answer:
 
 ```python
 for m in movies.find({"plot": {"$regex": "war"}}).sort('released', pymongo.DESCENDING).limit(5):
-    print(f"{m['title']}, {m['plot']} was released on {m['released']}")
+    print(f"{m['title']} ({m['plot']}) was released on {m['released']}")
 ```
 
 ### Question 2
